@@ -71,8 +71,8 @@ export default function SecondSection({data}: Props) {
     >
       <div>
         <main className="mt-0 md:mt-15">
-          <div className="mx-auto max-w-7xl py-6 px-0 md:px-12">
-            <div className="mb-5 px-5 md:px-0">
+          <div className="mx-auto max-w-7xl py-6 px-5  md:px-12">
+            <div className="mb-5 md:px-0">
               <div>
                 <span className="text-lg text-secondary font-bold">
                   Ürünler

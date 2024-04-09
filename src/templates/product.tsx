@@ -1,7 +1,5 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import pallet1 from "@/assets/background/pallet-img.png";
-import palet2 from "@/assets/background/tahta-palet-video.png";
 import BasicRating from "@/components/rating";
 import InteractiveList from "@/components/list";
 import PageHeader from "@/components/page-header";
@@ -12,6 +10,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 import {PortableText} from '@portabletext/react'
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 import "yet-another-react-lightbox/plugins/counter.css";
@@ -72,7 +71,7 @@ export default function ProductDetail({ pageContext }: Props) {
   >();
   const { productData, pagePath } = pageContext;
 
-  console.log(productData.overview);
+
 
   React.useEffect(() => {
     const images = productData.images.map((image) => {
@@ -165,27 +164,30 @@ export default function ProductDetail({ pageContext }: Props) {
               </div>
             </div>
             <div>
+              <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
               <div className="flex space-x-2 mt-2">
               
-                {productData.images.map((image, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      setIndex(index);
-                      setOpenLightbox(true);
-                    }}
-                  >
-                    <GatsbyImage
-                      image={getImage(image.asset) as any}
-                      className="h-16 w-16 border border-gray cursor-pointer transition ease-in-out delay-150 hover:scale-125"
-                      alt={productData.title}
-                    />
-                  </div>
-                ))}
-              </div>
+              {productData.images.map((image, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    setIndex(index);
+                    setOpenLightbox(true);
+                  }}
+                >
+                  <GatsbyImage
+                    image={getImage(image.asset) as any}
+                    className="h-16 w-16 border border-gray cursor-pointer transition ease-in-out delay-150 hover:scale-125"
+                    alt={productData.title}
+                  />
+                </div>
+              ))}
+            </div>
+              </ScrollArea>
+              
             </div>
           </div>
-          <div className="bg-white mx-3 md:mx-0 p-5 rounded-lg shadow-lg">
+          <div className="bg-white md:mx-3 mt-4 md:mt-0 p-5 rounded-lg shadow-lg">
             <Badge variant="success">Stokta Var</Badge>
 
             <div className="mt-5">

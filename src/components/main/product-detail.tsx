@@ -43,7 +43,7 @@ export default function ProductDetail({product}: Props) {
               placeholder={"blurred" as any}
             />
       </div>
-      <div className="bg-white mx-3 md:mx-0 p-5 rounded-lg shadow-lg">
+      <div className="bg-white mx-0 md:mx-0 p-5 rounded-lg shadow-lg">
         <Badge variant="success">Stokta Var</Badge>
 
         <div className="mt-5">
