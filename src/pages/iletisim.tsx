@@ -9,6 +9,7 @@ import { CiMail } from "react-icons/ci";
 import { CiClock2 } from "react-icons/ci";
 import SimpleMap from "@/components/contact/map";
 import useContactData from "@/hooks/useContactData";
+import useHeaderData from "@/hooks/useHeaderData";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SEO } from "@/components/seo";
 import { HeadFC } from "gatsby";
@@ -49,9 +50,13 @@ interface ContactData {
 
 export default function Contact({}: Props) {
   const contactData:ContactData = useContactData();
+  const settings = useHeaderData()
+
+  const headerData = settings;
   const data:contactNodeData = contactData?.edges?.[0]?.node || {};
 
-  console.log(data, 'data')
+
+
   return (
     <div>
       <main>
@@ -128,6 +133,8 @@ export default function Contact({}: Props) {
             <div>
               <SimpleMap
                 geo_location={data?.geo_location}
+                google_maps_key={headerData?.google_maps_key}
+                
               />
             </div>
           </div>

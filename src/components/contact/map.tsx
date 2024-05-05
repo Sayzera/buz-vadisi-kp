@@ -7,9 +7,11 @@ type Props = {
   geo_location : {
     latitude: number;
     longitude: number;
-  }
+  },
+  google_maps_key: string;
 }
-export default function SimpleMap({geo_location}: Props) {
+export default function SimpleMap({geo_location,google_maps_key}: Props) {
+  console.log(google_maps_key,'google_maps_key')
   const defaultProps = {
     center: {
       lat:  geo_location?.latitude,
@@ -50,7 +52,7 @@ export default function SimpleMap({geo_location}: Props) {
     // Important! Always set the container height explicitly
     <div className="w-full h-[50vh] relative">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyBbcd7PwwmbvZphx9PtVNKkxywRBBN2xyg" }}
+        bootstrapURLKeys={{ key: google_maps_key ? google_maps_key : "AIzaSyBbcd7PwwmbvZphx9PtVNKkxywRBBN2xyg"}}
         defaultCenter={defaultProps.center}
         yesIWantToUseGoogleMapApiInternals={true}
         defaultZoom={defaultProps.zoom}

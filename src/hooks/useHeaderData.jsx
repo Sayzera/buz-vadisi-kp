@@ -17,6 +17,7 @@ export default function useHeaderData() {
           twitter
           youtube
           mail
+          google_maps_key
           logo {
             asset {
               url
